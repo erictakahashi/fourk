@@ -11,5 +11,9 @@ class EstablishmentsControllerTest < ActionController::TestCase
   test "request of the index action" do
     get :index
     assert_response :success
+    assert_not_nil assigns(:establishments)
+  end
+
+  test "listing of establishments on index page" do
   end
 end
