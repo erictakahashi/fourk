@@ -17,6 +17,12 @@ class EstablishmentsControllerTest < ActionController::TestCase
     assert_select "li"
   end
 
-  test "listing of establishments on index page" do
+  test "route to new page" do
+    assert_routing({ path: 'establishments/new', method: :get }, { controller: 'establishments', action: 'new' })
+  end
+
+  test "request of the new action" do
+    get :new
+    assert_response :success
   end
 end
