@@ -21,8 +21,19 @@ class EstablishmentsControllerTest < ActionController::TestCase
     assert_routing({ path: 'establishments/new', method: :get }, { controller: 'establishments', action: 'new' })
   end
 
-  test "request of the new action" do
+  test "request of the new action and view" do
     get :new
     assert_response :success
+    assert_not_nil assigns(:establishment)
+
+    assert_select "form input" do
+      assert_select "[name=?]", 'establishment[name]'
+      assert_select "[name=?]", 'establishment[description]'
+      assert_select "[name=?]", 'establishment[address]'
+      assert_select "[name=?]", 'establishment[zipcode]'
+      assert_select "[name=?]", 'establishment[city]'
+      assert_select "[name=?]", 'establishment[state]'
+      assert_select "[type=?]", 'submit'
+    end
   end
 end

@@ -4,6 +4,6 @@ class EstablishmentsController < ApplicationController
   end
 
   def new
-    #@establishment = Establishment.new
+    @establishment = Establishment.new
   end
 end
