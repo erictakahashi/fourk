@@ -28,12 +28,15 @@ class EstablishmentsControllerTest < ActionController::TestCase
 
     assert_select "form input" do
       assert_select "[name=?]", 'establishment[name]'
-      assert_select "[name=?]", 'establishment[description]'
       assert_select "[name=?]", 'establishment[address]'
       assert_select "[name=?]", 'establishment[zipcode]'
       assert_select "[name=?]", 'establishment[city]'
       assert_select "[name=?]", 'establishment[state]'
       assert_select "[type=?]", 'submit'
+    end
+
+    assert_select "form textarea" do
+      assert_select "[name=?]", 'establishment[description]'
     end
   end
 end
