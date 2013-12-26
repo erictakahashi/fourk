@@ -6,4 +6,20 @@ class EstablishmentsController < ApplicationController
   def new
     @establishment = Establishment.new
   end
+
+  def create
+    @establishment = Establishment.new(params_establishment(params))
+    @establishment.save
+    redirect_to "index"
+  end
+
+  private
+  def params_establishment(params)
+    params.require(:establishment).permit(:name, 
+                                          :description, 
+                                          :address, 
+                                          :zipcode,
+                                          :city,
+                                          :state)
+  end
 end

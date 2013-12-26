@@ -43,4 +43,19 @@ class EstablishmentsControllerTest < ActionController::TestCase
   test "route for create" do
     assert_routing({ path: 'establishments', method: :post }, { controller: 'establishments', action: 'create' })
   end
+
+  test "saving the new establishment submited" do
+    assert_difference('Establishment.count') do
+      post :create, establishment: {
+                            name: 'Mc Donalds',
+                            description: 'Restaurante fast food americano',
+                            address: 'Av. Dr. Timoteo Penteado',
+                            zipcode: '07071000',
+                            city: 'Guarulhos',
+                            state: 'São Paulo'
+                          }
+    end
+
+    assert_redirected_to "index"
+  end
 end
