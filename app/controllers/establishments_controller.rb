@@ -17,6 +17,10 @@ class EstablishmentsController < ApplicationController
     end
   end
 
+  def show
+    @establishment = Establishment.find(params[:id])
+  end
+
   private
   def params_establishment(params)
     params.require(:establishment).permit(:name, 

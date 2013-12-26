@@ -75,4 +75,22 @@ class EstablishmentsControllerTest < ActionController::TestCase
 
     assert_select "ul"
   end
+
+  test "route for show" do
+    assert_routing({ path: 'establishments/1', method: :get }, { controller: 'establishments', action: 'show', id: '1' })
+  end
+
+  test "show a single establishment" do
+    establishment = establishments(:one)
+
+    get :show, id: establishment.id
+    assert_response :success
+
+    assert_select '#name', establishment.name
+    assert_select '#description', establishment.description
+    assert_select '#address', establishment.address
+    assert_select '#zipcode', establishment.zipcode
+    assert_select '#city', establishment.city
+    assert_select '#state', establishment.state
+  end
 end
