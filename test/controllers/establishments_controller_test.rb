@@ -93,4 +93,28 @@ class EstablishmentsControllerTest < ActionController::TestCase
     assert_select '#city', establishment.city
     assert_select '#state', establishment.state
   end
+
+  test "route for edit" do
+    assert_routing({ path: 'establishments/1/edit', method: :get }, { controller: 'establishments', action: 'edit', id: '1' })
+  end
+
+  test "edit a single establishment" do
+    establishment = establishments(:one)
+
+    get :edit, id: establishment.id
+    assert_response :success
+
+    assert_select "form input" do
+      assert_select "[name=?]", 'establishment[name]'
+      assert_select "[name=?]", 'establishment[address]'
+      assert_select "[name=?]", 'establishment[zipcode]'
+      assert_select "[name=?]", 'establishment[city]'
+      assert_select "[name=?]", 'establishment[state]'
+      assert_select "[type=?]", 'submit'
+    end
+
+    assert_select "form textarea" do
+      assert_select "[name=?]", 'establishment[description]'
+    end
+  end
 end
