@@ -58,4 +58,21 @@ class EstablishmentsControllerTest < ActionController::TestCase
 
     assert_redirected_to "index"
   end
+
+  test "redirect to new view whem new establishment submited fails" do
+    assert_no_difference('Establishment.count') do
+      post :create, establishment: {
+                            name: ' ',
+                            description: 'Restaurante fast food americano',
+                            address: 'Av. Dr. Timoteo Penteado',
+                            zipcode: '07071000',
+                            city: 'Guarulhos',
+                            state: 'São Paulo'
+                          }
+    end
+
+    assert_template "new"
+
+    assert_select "ul"
+  end
 end

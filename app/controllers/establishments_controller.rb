@@ -9,8 +9,12 @@ class EstablishmentsController < ApplicationController
 
   def create
     @establishment = Establishment.new(params_establishment(params))
-    @establishment.save
-    redirect_to "index"
+
+    if @establishment.save
+      redirect_to "index"
+    else
+      render "new"
+    end
   end
 
   private
