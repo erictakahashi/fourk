@@ -56,7 +56,7 @@ class EstablishmentsControllerTest < ActionController::TestCase
                           }
     end
 
-    assert_redirected_to "index"
+    assert_redirected_to establishment_path(assigns(:establishment))
   end
 
   test "redirect to new view whem new establishment submited fails" do

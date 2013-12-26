@@ -11,7 +11,7 @@ class EstablishmentsController < ApplicationController
     @establishment = Establishment.new(params_establishment(params))
 
     if @establishment.save
-      redirect_to "index"
+      redirect_to @establishment
     else
       render "new"
     end
