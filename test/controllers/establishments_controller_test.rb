@@ -39,4 +39,8 @@ class EstablishmentsControllerTest < ActionController::TestCase
       assert_select "[name=?]", 'establishment[description]'
     end
   end
+
+  test "route for create" do
+    assert_routing({ path: 'establishments', method: :post }, { controller: 'establishments', action: 'create' })
+  end
 end
