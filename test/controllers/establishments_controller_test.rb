@@ -117,4 +117,17 @@ class EstablishmentsControllerTest < ActionController::TestCase
       assert_select "[name=?]", 'establishment[description]'
     end
   end
+
+  test "route for update" do
+    assert_routing({ path: 'establishments/1', method: :put }, { controller: 'establishments', action: 'update', id: '1' })
+  end
+
+  test "update the establishment edited" do
+    #assert_equal "MyString", Establishment.find(establishments(:one).id).name
+    
+    put :update, :id => establishments(:one), :establishment => {:name => 'MyString'}
+    assert_equal "MyString", assigns(:establishment).name
+
+    assert_redirected_to establishment_path(assigns(:establishment))
+  end
 end

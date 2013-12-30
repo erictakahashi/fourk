@@ -25,6 +25,16 @@ class EstablishmentsController < ApplicationController
     @establishment = Establishment.find(params[:id])
   end
 
+  def update
+    @establishment = Establishment.find(params[:id])
+
+    if @establishment.update_attributes!(params_establishment(params))
+      redirect_to @establishment
+    else
+      render "edit"
+    end
+  end
+
   private
   def params_establishment(params)
     params.require(:establishment).permit(:name, 
