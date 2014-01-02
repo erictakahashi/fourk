@@ -10,3 +10,6 @@
 <p id="city"><%= @establishment.city %></p>
 <%= label_tag :state %>
 <p id="state"><%= @establishment.state %></p>
+
+<p><%= link_to "Editar", edit_establishment_path(@establishment) %>
+<p><%= link_to "Voltar", establishments_path %></p>

@@ -1,5 +1,7 @@
+<%= link_to "Novo estabelecimento", new_establishment_path %>
+
 <ul>
   <% @establishments.each do |establishment| %>
-    <li><%= establishment.name %></li>
+    <li><%= establishment.name %> - <%= link_to "Ver", establishment %></li>
   <% end %>
 </ul>
