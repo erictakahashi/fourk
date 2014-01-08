@@ -1,14 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @food.name %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= action_title @food.name %>
+  </div> <!-- end panel-heading -->
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">
+      </div> <!-- end col-md-2 -->
+      <div class="col-md-10">
+        <address>
+          <strong><%= @food.name %></strong> - <%= link_to "Editar", edit_food_path(@food) %><br>
+          <%= @food.description %>
+        </address> <!--  end address -->
+      </div> <!-- end col-md-10 -->
+    </div> <!-- end row -->
+  </div> <!-- end panel-body -->
+</div> <!-- end panel panel-default -->
 
-<p>
-  <strong>Description:</strong>
-  <%= @food.description %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2><small>Presente nos seguintes estabelecimentos:</small></h2>
+  </div> <!-- end panel-heading -->
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="list-group">
+          <% @food.establishments.each do |establishment| %>
+            <%= link_to([establishment], :class => "list-group-item") do %>
+              <h4 class="list-group-item-heading">
+                <%= establishment.name %>
+              </h4>
+            <% end %> <!-- end link_to -->
+          <% end %> <!-- end each -->
+        </div> <!-- end list-group -->
+      </div> <!-- end col-md-12 -->
+    </div> <!-- end row -->
+  </div> <!-- end panel-body -->
+</div> <!-- end panel panel-default -->
 
-<%= link_to 'Edit', edit_food_path(@food) %> |
 <%= link_to 'Back', foods_path %>
