@@ -36,12 +36,15 @@ $fourkcolor: #9B1B34;
 
 .landing-features {
   padding-top: 20px;
-  text-align: center;
 
   .col-md-3 {
     .glyphicon {
       font-size: 120px;
       color: rgb(155,27,52);
     } /* end glyphicon */
+
+    p {
+      text-align: justify;
+    } /* end p */
   } /* end col-md-3 */
 } /* end landing-features */
