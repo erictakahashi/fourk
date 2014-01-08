@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-md-6">
     <div class="panel panel-default">
-      <div class="panel-heading">Cadastrar Novo Estabelecimento</div>
+      <div class="panel-heading">
+        <%= action_title "Cadastrar Novo Estabelecimento" %>
+      </div>
       <div class="panel-body">
         <ul>
           <% @establishment.errors.full_messages.each do |msg| %>

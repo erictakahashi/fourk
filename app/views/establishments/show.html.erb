@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <%= @establishment.name %>
+    <%= action_title @establishment.name %>
   </div> <!-- end panel-heading -->
   <div class="panel-body">
     <div class="row">
@@ -8,17 +8,16 @@
       </div> <!-- end col-md-2 -->
       <div class="col-md-10">
         <address>
-          <strong><%= @establishment.name %></strong><br>
+          <strong><%= @establishment.name %></strong> - <%= link_to "Editar", edit_establishment_path(@establishment) %><br>
           <%= @establishment.description %><br>
           <%= @establishment.address %><br>
-          <%= @establishment.zipcode %><br>
-          <%= @establishment.city %><br>
-          <%= @establishment.state %><br>
+          CEP: <%= @establishment.zipcode %><br>
+          Cidade: <%= @establishment.city %><br>
+          Estado: <%= @establishment.state %><br>
         </address> <!--  end address -->
       </div> <!-- end col-md-10 -->
     </div> <!-- end row -->
   </div> <!-- end panel-body -->
 </div> <!-- end panel panel-default -->
 
-<p><%= link_to "Editar", edit_establishment_path(@establishment) %>
 <p><%= link_to "Voltar", establishments_path %></p>
