@@ -12,9 +12,9 @@
         <%= render 'form' %>
 
         <%= link_to "Cancelar", establishments_path %>
-      </div>
-    </div>
-  </div>
+      </div> <!-- end panel-body -->
+    </div> <!-- end panel panel-default -->
+  </div> <!-- end col-md-6 -->
   <div class="col-md-6">
     <div class="panel panel-default">
       <div class="panel-heading">Estabelecimentos Cadastrados</div>
@@ -24,13 +24,13 @@
             <%= link_to([establishment], :class => "list-group-item") do %>
               <h4 class="list-group-item-heading">
                 <%= establishment.name %>
-              </h4>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+              </h4> <!-- end h4 -->
+            <% end %> <!-- end link_to -->
+          <% end %> <!-- end each -->
+        </div> <!-- end list-group -->
+      </div> <!-- end panel-body -->
+    </div> <!-- end panel panel-default -->
+  </div> <!-- end col-md-6 -->
+</div> <!-- end row -->
 
 
