@@ -5,11 +5,15 @@
         <%= link_to "Novo estabelecimento", new_establishment_path, class: "btn btn-default" %>
       </div>
       <div class="panel-body">
-        <ul>
-        <% @establishments.each do |establishment| %>
-          <li><%= establishment.name %> - <%= link_to "Ver", establishment %></li>
-        <% end %>
-      </ul>
+        <div class="list-group">
+          <% @establishments.each do |establishment| %>
+            <%= link_to([establishment], :class => "list-group-item") do %>
+              <h4 class="list-group-item-heading">
+                <%= establishment.name %>
+              </h4>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
