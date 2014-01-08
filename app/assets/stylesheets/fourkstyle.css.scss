@@ -48,3 +48,12 @@ $fourkcolor: #9B1B34;
     } /* end p */
   } /* end col-md-3 */
 } /* end landing-features */
+
+.panel-default {
+  .panel-heading {
+    h1 {
+      display: inline-block;
+      margin-top: 10px;
+    } /* end h1 */
+  } /* end panel-heading */
+} /* end panel-default */
