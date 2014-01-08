@@ -1,6 +1,8 @@
 class EstablishmentsController < ApplicationController
   def index
     @establishments = Establishment.all
+
+    @foods = Food.all
   end
 
   def new
