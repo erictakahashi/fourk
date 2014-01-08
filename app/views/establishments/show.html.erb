@@ -20,4 +20,25 @@
   </div> <!-- end panel-body -->
 </div> <!-- end panel panel-default -->
 
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2><small>Serviços:</small></h2>
+  </div> <!-- end panel-heading -->
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="list-group">
+          <% @establishment.foods.each do |food| %>
+            <%= link_to([food], :class => "list-group-item") do %>
+              <h4 class="list-group-item-heading">
+                <%= food.name %>
+              </h4>
+            <% end %> <!-- end link_to -->
+          <% end %> <!-- end each -->
+        </div> <!-- end list-group -->
+      </div> <!-- end col-md-12 -->
+    </div> <!-- end row -->
+  </div> <!-- end panel-body -->
+</div> <!-- end panel panel-default -->
+
 <p><%= link_to "Voltar", establishments_path %></p>
