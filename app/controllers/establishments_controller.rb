@@ -5,6 +5,8 @@ class EstablishmentsController < ApplicationController
 
   def new
     @establishment = Establishment.new
+
+    @establishments = Establishment.all
   end
 
   def create

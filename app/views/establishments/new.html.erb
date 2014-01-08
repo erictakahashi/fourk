@@ -1,9 +1,36 @@
-<ul>
-<% @establishment.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-<% end %>
-</ul>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Cadastrar Novo Estabelecimento</div>
+      <div class="panel-body">
+        <ul>
+          <% @establishment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
 
-<%= render 'form' %>
+        <%= render 'form' %>
 
-<%= link_to "Cancelar", establishments_path %>
+        <%= link_to "Cancelar", establishments_path %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Estabelecimentos Cadastrados</div>
+      <div class="panel-body">
+        <div class="list-group">
+          <% @establishments.each do |establishment| %>
+            <%= link_to([establishment], :class => "list-group-item") do %>
+              <h4 class="list-group-item-heading">
+                <%= establishment.name %>
+              </h4>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
