@@ -7,9 +7,14 @@ $fourkcolor: #9B1B34;
 
   .container {
     .navbar-header {
-      .navbar-brand {
-        color: rgb(255,236,196);
-      } /* end navbar-brand */
+      h1 {
+        display: inline-block;
+        margin: 0;
+
+        .navbar-brand {
+          color: rgb(255,236,196);
+        } /* end navbar-brand */
+      } /* end h1 */
     } /* end navbar-header */
   } /* end container */
 } /* end navbar-fourk */
@@ -51,7 +56,7 @@ $fourkcolor: #9B1B34;
 
 .panel-default {
   .panel-heading {
-    h1 {
+    h2 {
       display: inline-block;
       margin-top: 10px;
     } /* end h1 */
