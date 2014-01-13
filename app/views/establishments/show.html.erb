@@ -37,6 +37,13 @@
           <% end %> <!-- end each -->
         </div> <!-- end list-group -->
       </div> <!-- end col-md-12 -->
+
+      <div class="col-md-12">
+        <%=  form_tag(food_add_establishment_path(@establishment)) do %>
+          <%= select_tag(:food, options_from_collection_for_select(@establishment.unenrolled_foods, :id, :name)) %>
+          <%= submit_tag "Adicionar" %>
+        <% end %>
+      </div> <!-- end col-md-12 -->
     </div> <!-- end row -->
   </div> <!-- end panel-body -->
 </div> <!-- end panel panel-default -->
