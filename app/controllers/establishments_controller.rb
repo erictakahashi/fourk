@@ -47,7 +47,7 @@ class EstablishmentsController < ApplicationController
 
   def food_add
     @establishment = Establishment.find(params[:id])
-    @food = Food.find(params[:establishment])
+    @food = Food.find(params[:food])
 
     if not @establishment.enrolled_in?(@food)
       @establishment.foods << @food
