@@ -1,6 +1,12 @@
 Fourk::Application.routes.draw do
   get '/', to: 'welcome#index'
-  resources 'establishments', only: [:index, :new, :create, :show, :edit, :update]
+  resources 'establishments', only: [:index, :new, :create, :show, :edit, :update] do
+    member do
+      get :foods
+      post :food_add
+      post :food_remove
+    end
+  end
   resources :foods, only: [:index, :new, :create, :show, :edit, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
