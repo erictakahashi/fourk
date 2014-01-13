@@ -39,6 +39,42 @@ class EstablishmentsController < ApplicationController
     end
   end
 
+  # Methods to add and remove foods from establishments
+  def foods
+    @establishment = Establishment.find(params[:id])
+    @foods = @establishment.foods
+  end
+
+  def food_add
+    @establishment = Establishment.find(params[:id])
+    @food = Food.find(params[:establishment])
+
+    if not @establishment.enrolled_in?(@food)
+      @establishment.foods << @food
+      flash[:notice] = 'Comida associada ao restaurante'
+    else
+      flash[:notice] = 'Comida já associada ao restaurante'
+    end
+    redirect_to @establishment
+  end
+
+  def food_remove
+    @establishment = Establishment.find(params[:id])
+    food_ids = params[:foods]
+
+    unless food_ids.blank?
+      food_ids.each do |food_id|
+        food = Food.find(food_id)
+        if @establishment.enrolled_in?(food)
+          logger.info "Removendo a comida do restaurante"
+          @establishment.foods.delete(food)
+          flash[:notice] = 'Comida removida do restaurante'
+        end
+      end
+    end
+    redirect_to @establishment
+  end
+
   private
   def params_establishment(params)
     params.require(:establishment).permit(:name, 
