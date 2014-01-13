@@ -44,6 +44,22 @@
           <%= submit_tag "Adicionar" %>
         <% end %>
       </div> <!-- end col-md-12 -->
+
+      <div class="col-md-12">
+        <%= form_for @food, html: {class: "form-horizontal", role: "form"} do |f| %>
+          <div class="form-group">
+            <%= f.label :name, class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= f.text_field :name, class: "form-control" %>
+            </div> <!-- end col-sm-9 -->
+          </div> <!-- end form-group -->
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+              <%= f.submit "Enviar", class: "btn btn-default" %>
+            </div> <!-- end col-sm-offset-3 col-sm-9 -->
+          </div> <!-- end form-group -->
+        <% end %> <!-- end form_for -->
+      </div> <!-- end col-md-12 -->
     </div> <!-- end row -->
   </div> <!-- end panel-body -->
 </div> <!-- end panel panel-default -->

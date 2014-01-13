@@ -23,6 +23,8 @@ class EstablishmentsController < ApplicationController
 
   def show
     @establishment = Establishment.find(params[:id])
+
+    @food = Food.new
   end
 
   def edit
