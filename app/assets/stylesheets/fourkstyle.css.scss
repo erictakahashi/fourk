@@ -24,6 +24,13 @@ $fourkcolor: #9B1B34;
   border-radius: 20px;
   background: rgb(255,236,196);
 
+  .col-md-6.landing-call-video {
+    iframe {
+      width: 90%;
+      margin: 10px;
+    }
+  }
+
   .col-md-6.landing-call-text {
     padding: 5px 5px 25px 5px;
 
