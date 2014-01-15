@@ -26,14 +26,12 @@ $fourkcolor: #9B1B34;
 
   .col-md-6.landing-call-video {
     iframe {
-      width: 90%;
+      width: 97%;
       margin: 10px;
-    }
-  }
+    } /* end iframe */
+  } /* end .col-md-6.landing-call-video */
 
   .col-md-6.landing-call-text {
-    padding: 5px 5px 25px 5px;
-
     .btn.btn-call {
       background: $fourkcolor;
       color: white;
