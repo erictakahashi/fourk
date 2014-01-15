@@ -20,7 +20,9 @@
       </button>
       <!--<a class="navbar-brand" href="#">fourk</a>-->
       <h1>
-        <%= link_to "fourk", {controller: "welcome"}, action: "index", class: "navbar-brand" %>
+        <%= link_to(establishments_path, class: "navbar-brand") do %>
+          <%= image_tag "fourk_logo.png", alt: "fourk" %>
+        <% end %>
       </h1>
     </div>
     <div class="navbar-collapse collapse">

@@ -13,6 +13,10 @@ $fourkcolor: #9B1B34;
 
         .navbar-brand {
           color: rgb(255,236,196);
+
+          img {
+            width: 100px;
+          }
         } /* end navbar-brand */
       } /* end h1 */
     } /* end navbar-header */
