@@ -12,6 +12,12 @@
               <h4 class="list-group-item-heading">
                 <%= establishment.name %>
               </h4>
+
+              <% establishment.categories.each do |category| %>
+                <span class="label label-default">
+                  <%= category.name %>
+                </span>
+              <% end %> <!-- end each -->
             <% end %> <!-- end link_to -->
           <% end %> <!-- end each -->
         </div> <!-- end list-group -->
@@ -31,6 +37,12 @@
               <h4 class="list-group-item-heading">
                 <%= food.name %>
               </h4>
+
+              <% food.categories.each do |category| %>
+                <span class="label label-default">
+                  <%= category.name %>
+                </span>
+              <% end %> <!-- end each -->
             <% end %> <!-- end link_to -->
           <% end %> <!-- end each -->
         </div> <!-- end list-group -->
