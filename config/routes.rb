@@ -1,4 +1,6 @@
 Fourk::Application.routes.draw do
+  resources :categories
+
   get '/', to: 'welcome#index'
   resources 'establishments', only: [:index, :new, :create, :show, :edit, :update] do
     member do
