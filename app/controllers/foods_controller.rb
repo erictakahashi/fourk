@@ -63,6 +63,42 @@ class FoodsController < ApplicationController
     end
   end
 
+
+  def categories
+    @food = Food.find(params[:id])
+    @categories = @food.categories
+  end
+
+  def category_add
+    @food = Food.find(params[:id])
+    @category = Category.find(params[:category])
+
+    if not @food.enrolled_in_category?(@category)
+      @food.categories << @category
+      flash[:notice] = 'Categoria associada'
+    else
+      flash[:notice] = 'Categoria já associada'
+    end
+    redirect_to @food
+  end
+
+  def category_remove
+    @food = Food.find(params[:id])
+    category_ids = params[:categories]
+
+    unless category_ids.blank?
+      category_ids.each do |category_id|
+        category = Category.find(category_id)
+        if @food.enrolled_in_category?(category)
+          logger.info "Removendo a categoria"
+          @food.categories.delete(category)
+          flash[:notice] = 'Categoria removida'
+        end
+      end
+    end
+    redirect_to @food
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_food

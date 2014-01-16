@@ -13,4 +13,12 @@ class Establishment < ActiveRecord::Base
   def unenrolled_foods
     Food.all - self.foods
   end
+
+  def enrolled_in_category?(category)
+    self.categories.include?(category)
+  end
+
+  def unenrolled_categories
+    Category.all - self.categories
+  end
 end

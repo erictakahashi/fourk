@@ -7,9 +7,20 @@ Fourk::Application.routes.draw do
       get :foods
       post :food_add
       post :food_remove
+
+      get :categories
+      post :category_add
+      post :category_remove
     end
   end
-  resources :foods, only: [:index, :new, :create, :show, :edit, :update]
+  
+  resources :foods, only: [:index, :new, :create, :show, :edit, :update] do
+    member do
+      get :categories
+      post :category_add
+      post :category_remove
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
