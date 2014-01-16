@@ -6,7 +6,6 @@ class EstablishmentsController < ApplicationController
   end
 
   def new
-    puts "teste"
     @establishment = Establishment.new
 
     @establishments = Establishment.all
