@@ -17,6 +17,7 @@ class EstablishmentsController < ApplicationController
     if @establishment.save
       redirect_to @establishment
     else
+      @establishments = Establishment.all
       render "new"
     end
   end
