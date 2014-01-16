@@ -6,6 +6,7 @@ class EstablishmentsController < ApplicationController
   end
 
   def new
+    puts "teste"
     @establishment = Establishment.new
 
     @establishments = Establishment.all
@@ -17,6 +18,7 @@ class EstablishmentsController < ApplicationController
     if @establishment.save
       redirect_to @establishment
     else
+      @establishments = Establishment.all
       render "new"
     end
   end
