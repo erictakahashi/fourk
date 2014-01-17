@@ -67,7 +67,7 @@
 
       <div class="col-md-6">
         <p>Ou cadastre um se não encontrar:</p>
-        <%= form_for @food, html: {class: "form-inline", role: "form"} do |f| %>
+        <%= form_for @food, html: {class: "form-inline", role: "form"}, remote: true do |f| %>
           <div class="form-group">
             <%= f.label :name, class: "col-sm-3 sr-only" %>
             <div class="col-sm-9">
