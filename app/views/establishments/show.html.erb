@@ -51,26 +51,29 @@
                 </h4>
               <% end %> <!-- end link_to -->
 
-                <span class="label label-default">
+              <span class="label label-default">
+                <% if food.prices.count > 0 %>
                   R$ <%= food.prices.last.value %>
-                </span>
+                <% else %>
+                  Sem preço definido
+                <% end %>
+              </span>
 
-                <%= form_for @price, html: {class: "form-inline", role: "form"} do |f| %>
-                  <div class="form-group">
-                    <%= f.label :value, class: "col-sm-3 sr-only" %>
-                    <div class="col-sm-9">
-                      <%= f.text_field :value, class: "form-control" %>
-                    </div> <!-- end col-sm-9 -->
-                  </div> <!-- end form-group -->
-                  <%= f.hidden_field :food_id, :value => food.id %>
-                  <div class="form-group">
-                    <div class="col-sm-offset-3 col-sm-9">
-                      <%= f.submit "Cadastrar", class: "btn btn-default" %>
-                    </div> <!-- end col-sm-offset-3 col-sm-9 -->
-                  </div> <!-- end form-group -->
-                <% end %> <!-- end form_for -->
+              <%= form_for @price, html: {class: "form-inline", role: "form"} do |f| %>
+                <div class="form-group">
+                  <%= f.label :value, class: "col-sm-3 sr-only" %>
+                  <div class="col-sm-9">
+                    <%= f.text_field :value, class: "form-control" %>
+                  </div> <!-- end col-sm-9 -->
+                </div> <!-- end form-group -->
+                <%= f.hidden_field :food_id, :value => food.id %>
+                <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-9">
+                    <%= f.submit "Cadastrar", class: "btn btn-default" %>
+                  </div> <!-- end col-sm-offset-3 col-sm-9 -->
+                </div> <!-- end form-group -->
+              <% end %> <!-- end form_for -->
 
-              
             </div>
           <% end %> <!-- end each -->
         </div> <!-- end list-group -->
