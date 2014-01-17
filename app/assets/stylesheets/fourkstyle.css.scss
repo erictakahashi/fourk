@@ -79,3 +79,30 @@ $fourkcolor: #9B1B34;
     } /* end h1 */
   } /* end panel-heading */
 } /* end panel-default */
+
+
+.navbar-footer {
+  width: 100%;
+  margin-top: 20px;
+  background: #ffecc4;
+  text-align: center;
+
+  .container {
+    .row {
+      .col-sm-3 {
+        padding: 15px 0;
+
+        a {
+          color: #9b1b34;
+        } /* end a */
+      } /* end col-sm-3 */
+    } /* end row */
+  } /* end container */
+} /* end navbar-footer */
+
+.footer {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  background: #9b1b34;
+  text-align: center;
+}
