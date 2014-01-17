@@ -20,6 +20,14 @@ $fourkcolor: #9B1B34;
         } /* end navbar-brand */
       } /* end h1 */
     } /* end navbar-header */
+
+    .collapse.navbar-collapse {
+      p {
+        a {
+          color: white;
+        } /* end a */
+      } /* end p */
+    } /* end .collapse.navbar-collapse */
   } /* end container */
 } /* end navbar-fourk */
 

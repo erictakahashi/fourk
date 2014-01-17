@@ -12,23 +12,32 @@
 <div class="navbar navbar-inverse navbar-fourk" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <!--<a class="navbar-brand" href="#">fourk</a>-->
       <h1>
         <%= link_to(establishments_path, class: "navbar-brand") do %>
           <%= image_tag "fourk_logo.png", alt: "fourk" %>
         <% end %>
-      </h1>
-    </div>
-    <div class="navbar-collapse collapse">
-    </div><!--/.navbar-collapse -->
-  </div>
-</div>
+      </h1> <!-- end h1 -->
+    </div> <!-- end navbar-header -->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-right">
+        <% if current_user %>
+          Welcome <strong><%= current_user.name %></strong>!
+          <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        <% else %>
+          <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+        <% end %>
+      </p>
+    </div> <!-- end collapse navbar-collapse -->
+  </div> <!-- end container -->
+</div> <!-- end navbar navbar-inverse navbar-fourk -->
     
 <div class="container">
   <%= yield %>
