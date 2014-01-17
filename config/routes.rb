@@ -1,4 +1,6 @@
 Fourk::Application.routes.draw do
+  resources :prices
+
   resources :categories
 
   get '/', to: 'welcome#index'
