@@ -53,3 +53,6 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'bootstrap-sass'
+
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
