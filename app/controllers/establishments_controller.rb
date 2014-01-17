@@ -26,6 +26,8 @@ class EstablishmentsController < ApplicationController
     @establishment = Establishment.find(params[:id])
 
     @food = Food.new
+
+    @price = Price.new
   end
 
   def edit
