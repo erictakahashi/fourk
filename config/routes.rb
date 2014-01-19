@@ -3,7 +3,10 @@ Fourk::Application.routes.draw do
 
   resources :categories
 
+  get '/uso', to: 'welcome#usage'
+  get '/privacidade', to: 'welcome#privacy'
   get '/', to: 'welcome#index'
+
   resources 'establishments', only: [:index, :new, :create, :show, :edit, :update] do
     member do
       get :foods
