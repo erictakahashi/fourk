@@ -62,6 +62,7 @@
               <%= form_for @price, html: {class: "form-inline", role: "form"} do |f| %>
                 <div class="form-group">
                   <%= f.label :value, class: "col-sm-3 sr-only" %>
+                  <%= hidden_field_tag 'establishment', @establishment.id %>
                   <div class="col-sm-9">
                     <%= f.text_field :value, class: "form-control" %>
                   </div> <!-- end col-sm-9 -->
