@@ -28,8 +28,13 @@ class PricesController < ApplicationController
 
     respond_to do |format|
       if @price.save
-        format.html { redirect_to @price, notice: 'Price was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @price }
+        if params[:establishment]
+          @establishment = Establishment.find(params[:establishment])
+          format.html { redirect_to @establishment, notice: 'Price was successfully saved.' }
+        else
+          format.html { redirect_to @price, notice: 'Price was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @price }
+        end
       else
         format.html { render action: 'new' }
         format.json { render json: @price.errors, status: :unprocessable_entity }
