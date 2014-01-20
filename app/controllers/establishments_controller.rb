@@ -28,6 +28,8 @@ class EstablishmentsController < ApplicationController
     @food = Food.new
 
     @price = Price.new
+
+    @rate = Rate.new
   end
 
   def edit

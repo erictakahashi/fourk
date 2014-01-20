@@ -75,6 +75,24 @@
                 </div> <!-- end form-group -->
               <% end %> <!-- end form_for -->
 
+              <%= form_for @rate, html: {class: "form-inline", role: "form"} do |f| %>Avaliação: 
+                <%= hidden_field :rateable_id, value: food.id %>
+                <%= hidden_field :rateable_type, value: food.class %>
+
+                <%= radio_button_tag(:value, "1") %>
+                <%= label_tag(:age_1, "1") %>
+                <%= radio_button_tag(:value, "2") %>
+                <%= label_tag(:age_1, "2") %>
+                <%= radio_button_tag(:value, "3") %>
+                <%= label_tag(:age_1, "3") %>
+                <%= radio_button_tag(:value, "4") %>
+                <%= label_tag(:age_1, "4") %>
+                <%= radio_button_tag(:value, "5") %>
+                <%= label_tag(:age_1, "5") %>
+
+                <%= f.submit "Avaliar", class: "btn btn-default" %>
+              <% end %> <!-- end form_for -->
+
             </div>
           <% end %> <!-- end each -->
         </div> <!-- end list-group -->
