@@ -52,8 +52,8 @@
               <% end %> <!-- end link_to -->
 
               <span class="label label-default">
-                <% if food.prices.count > 0 %>
-                  R$ <%= food.prices.last.value %>
+                <% if food.prices.where(establishment_id: @establishment).count > 0 %>
+                  R$ <%= food.prices.where(establishment_id: @establishment).last.value %>
                 <% else %>
                   Sem preço definido
                 <% end %>
@@ -62,12 +62,12 @@
               <%= form_for @price, html: {class: "form-inline", role: "form"} do |f| %>
                 <div class="form-group">
                   <%= f.label :value, class: "col-sm-3 sr-only" %>
-                  <%= hidden_field_tag 'establishment', @establishment.id %>
                   <div class="col-sm-9">
                     <%= f.text_field :value, class: "form-control" %>
                   </div> <!-- end col-sm-9 -->
                 </div> <!-- end form-group -->
                 <%= f.hidden_field :food_id, :value => food.id %>
+                <%= f.hidden_field :establishment_id, :value => @establishment.id %>
                 <div class="form-group">
                   <div class="col-sm-offset-3 col-sm-9">
                     <%= f.submit "Cadastrar", class: "btn btn-default" %>
