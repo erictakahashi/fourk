@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: 1
+  rateable_id: 1
+  rateable_type: MyString
+
+two:
+  value: 1
+  rateable_id: 1
+  rateable_type: MyString

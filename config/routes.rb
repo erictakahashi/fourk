@@ -1,4 +1,6 @@
 Fourk::Application.routes.draw do
+  resources :rates
+
   resources :prices
 
   resources :categories
