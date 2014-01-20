@@ -67,10 +67,12 @@ ActiveRecord::Schema.define(version: 20140120173816) do
     t.integer  "value"
     t.integer  "rateable_id"
     t.string   "rateable_type"
+    t.integer  "establishment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "rates", ["establishment_id"], name: "index_rates_on_establishment_id"
   add_index "rates", ["rateable_id"], name: "index_rates_on_rateable_id"
   add_index "rates", ["rateable_type"], name: "index_rates_on_rateable_type"
 

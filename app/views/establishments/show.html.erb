@@ -78,6 +78,7 @@
               <%= form_for @rate, html: {class: "form-inline", role: "form"} do |f| %>Avaliação: 
                 <%= hidden_field :rateable_id, value: food.id %>
                 <%= hidden_field :rateable_type, value: food.class %>
+                <%= hidden_field :establishment_id, value: @establishment.id %>
 
                 <%= radio_button_tag(:value, "1") %>
                 <%= label_tag(:age_1, "1") %>
