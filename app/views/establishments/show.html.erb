@@ -59,6 +59,14 @@
                 <% end %>
               </span>
 
+              <span class="label label-default">
+                <% if food.rates.where(establishment_id: @establishment).count > 0 %>
+                  Nota: <%= food.prices.where(establishment_id: @establishment).average(:value) %>
+                <% else %>
+                  Nota: Não avaliado
+                <% end %>
+              </span>
+
               <%= form_for @price, html: {class: "form-inline", role: "form"} do |f| %>
                 <div class="form-group">
                   <%= f.label :value, class: "col-sm-3 sr-only" %>
