@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20140120093249) do
     t.integer  "food_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "establishment_id"
+    t.integer  "establishment_id"
   end
 
   add_index "prices", ["establishment_id"], name: "index_prices_on_establishment_id"
