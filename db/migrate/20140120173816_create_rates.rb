@@ -7,5 +7,8 @@ class CreateRates < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :rates, :rateable_id
+    add_index :rates, :rateable_type
   end
 end
