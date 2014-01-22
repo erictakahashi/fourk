@@ -28,8 +28,8 @@ class PricesController < ApplicationController
 
     respond_to do |format|
       if @price.save
-        if params[:establishment]
-          @establishment = Establishment.find(params[:establishment])
+        if price_params[:establishment_id]
+          @establishment = Establishment.find(price_params[:establishment_id])
           format.html { redirect_to @establishment, notice: 'Price was successfully saved.' }
         else
           format.html { redirect_to @price, notice: 'Price was successfully created.' }
