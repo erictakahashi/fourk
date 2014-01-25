@@ -86,9 +86,9 @@
               <% end %> <!-- end form_for -->
 
               <%= form_for @rate, html: {class: "form-inline", role: "form"} do |f| %>Avaliação: 
-                <%= hidden_field :rateable_id, value: food.id %>
-                <%= hidden_field :rateable_type, value: food.class %>
-                <%= hidden_field :establishment_id, value: @establishment.id %>
+                <%= f.hidden_field :rateable_id, value: food.id %>
+                <%= f.hidden_field :rateable_type, value: food.class %>
+                <%= f.hidden_field :establishment_id, value: @establishment.id %>
                 
                 <%= f.radio_button :value, '1'%> 
                 <%= label :value, '1' %>
