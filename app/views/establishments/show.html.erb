@@ -85,7 +85,23 @@
                 </div> <!-- end form-group -->
               <% end %> <!-- end form_for -->
 
-              <%= new_rate(food, @establishment) %>
+              <button class="btn btn-default btn-rate">Avaliar prato</button>
+              <div id="popover-head" class="hide">Dê uma nota:</div>
+              <div id="popover-content" class="hide">
+                <%= new_rate(food, @establishment) %>
+              </div>
+
+              <script type="text/javascript">
+              $('.btn-rate').popover({
+                html: true,
+                title: function() {
+                  return $('#popover-head').html();
+                },
+                content: function() {
+                  return $('#popover-content').html();
+                }
+              });
+              </script>
 
             </div>
           <% end %> <!-- end each -->
