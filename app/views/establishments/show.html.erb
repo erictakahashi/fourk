@@ -63,7 +63,7 @@
 
               <span class="label label-default">
                 <% if food.rates.where(establishment_id: @establishment).count > 0 %>
-                  Nota: <%= food.prices.where(establishment_id: @establishment).average(:value) %>
+                  Nota: <%= food.rates.where(establishment_id: @establishment).average(:value) %>
                 <% else %>
                   Nota: Não avaliado
                 <% end %>
