@@ -1,0 +1,21 @@
+<div id='new_rate'>
+  <div id="form_rate">
+    <%= form_for Rate.new, html: {class: "form-inline", role: "form"} do |f| %>Avaliação: 
+      <%= f.hidden_field :rateable_id, value: rateable.id %>
+      <%= f.hidden_field :rateable_type, value: rateable.class %>
+      <%= f.hidden_field :establishment_id, value: establishment.id %>
+      
+      <%= f.radio_button :value, '1'%> 
+      <%= label :value, '1' %>
+      <%= f.radio_button :value, '2' %>
+      <%= label :value, '2' %>
+      <%= f.radio_button :value, '3' %>
+      <%= label :value, '3' %>
+      <%= f.radio_button :value, '4' %>
+      <%= label :value, '4' %>
+      <%= f.radio_button :value, '5' %>
+      <%= label :value, '5' %>
+      <%= f.submit "Avaliar", class: "btn btn-default" %>
+    <% end %> <!-- end form_for -->
+  </div>
+</div>
