@@ -28,7 +28,8 @@ class RatesController < ApplicationController
 
     respond_to do |format|
       if @rate.save
-        format.html { redirect_to @rate, notice: 'Rate was successfully created.' }
+        @establishment = Establishment.find(rate_params[:establishment_id])
+        format.html { redirect_to @establishment, notice: 'Rate was successfully created.' }
         format.json { render action: 'show', status: :created, location: @rate }
       else
         format.html { render action: 'new' }
