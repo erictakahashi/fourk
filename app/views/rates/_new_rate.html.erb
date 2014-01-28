@@ -1,5 +1,5 @@
-<div id='new_rate'>
-  <div id="form_rate">
+<div class='new_rate'>
+  <div class="form_rate">
     <%= form_for Rate.new, html: {class: "form-inline", role: "form"} do |f| %>Avaliação: 
       <%= f.hidden_field :rateable_id, value: rateable.id %>
       <%= f.hidden_field :rateable_type, value: rateable.class %>
