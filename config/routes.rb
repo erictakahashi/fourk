@@ -9,6 +9,8 @@ Fourk::Application.routes.draw do
   get '/privacidade', to: 'welcome#privacy'
   get '/', to: 'welcome#index'
 
+  get '/establishments/:id/foods', to: 'establishments#foods'
+
   resources 'establishments', only: [:index, :new, :create, :show, :edit, :update] do
     member do
       get :foods

@@ -50,6 +50,10 @@ class EstablishmentsController < ApplicationController
   def foods
     @establishment = Establishment.find(params[:id])
     @foods = @establishment.foods
+
+    respond_to do |format|
+      format.json { render 'foods/index' }
+    end
   end
 
   def food_add
