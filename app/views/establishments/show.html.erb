@@ -36,18 +36,23 @@
       <div class="col-md-5">
         Nota Geral: 
         <% general_rate = 0 %>
-        <% for food in @establishment.foods %>
-          <% food_rate_count = food.rates.where(establishment_id: @establishment).average(:value) %>
+        <% general_rate_count = 0 %>
 
-          <% if food_rate_count == nil %>
+        <% for food in @establishment.foods %>
+          <% food_rate_average = food.rates.where(establishment_id: @establishment).average(:value) %>
+          <% food_rate_count = 1 %>
+
+          <% if food_rate_average == nil %>
+            <% food_rate_average = 0 %>
             <% food_rate_count = 0 %>
           <% end %>
 
-          <% general_rate += food_rate_count %>
+          <% general_rate += food_rate_average %>
+          <% general_rate_count += food_rate_count %>
         <% end %>
 
         <% if general_rate > 0 %>
-          <% general_rate = general_rate / @establishment.foods.count %>
+          <% general_rate = general_rate / general_rate_count %>
           <%= sprintf('%.1f', general_rate) %>
         <% else %>
           Não avaliado
