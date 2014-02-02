@@ -37,11 +37,13 @@
         Nota Geral: 
         <% general_rate = 0 %>
         <% for food in @establishment.foods %>
-          <% if food.rates.where(establishment_id: @establishment).count > 0 %>
-            <% general_rate += food.rates.where(establishment_id: @establishment).average(:value) %>
-          <% else %>
-            <% general_rate = 0 %>
+          <% food_rate_count = food.rates.where(establishment_id: @establishment).average(:value) %>
+
+          <% if food_rate_count == nil %>
+            <% food_rate_count = 0 %>
           <% end %>
+
+          <% general_rate += food_rate_count %>
         <% end %>
 
         <% if general_rate > 0 %>
