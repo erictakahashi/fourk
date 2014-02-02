@@ -37,10 +37,19 @@
         Nota Geral: 
         <% general_rate = 0 %>
         <% for food in @establishment.foods %>
-          <% general_rate += food.rates.where(establishment_id: @establishment).average(:value) %>
+          <% if food.rates.where(establishment_id: @establishment).count > 0 %>
+            <% general_rate += food.rates.where(establishment_id: @establishment).average(:value) %>
+          <% else %>
+            <% general_rate = 0 %>
+          <% end %>
         <% end %>
-        <% general_rate = general_rate / @establishment.foods.count %>
-        <%= sprintf('%.1f', general_rate) %>
+
+        <% if general_rate > 0 %>
+          <% general_rate = general_rate / @establishment.foods.count %>
+          <%= sprintf('%.1f', general_rate) %>
+        <% else %>
+          Não avaliado
+        <% end %>
       </div>
     </div> <!-- end row -->
   </div> <!-- end panel-body -->
@@ -72,7 +81,7 @@
 
               <span class="label label-default">
                 <% if food.rates.where(establishment_id: @establishment).count > 0 %>
-                  Nota: <%= sprintf('%.1f', food.rates.where(establishment_id: @establishment).average(:value)) %>
+                  Nota: <%= sprintf('%.1f',   food.rates.where(establishment_id: @establishment).average(:value)) %>
                 <% else %>
                   Nota: Não avaliado
                 <% end %>
