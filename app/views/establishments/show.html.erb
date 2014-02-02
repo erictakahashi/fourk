@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-md-2">
       </div> <!-- end col-md-2 -->
-      <div class="col-md-10">
+      <div class="col-md-5">
         <address>
           <strong><%= @establishment.name %></strong> - <%= link_to "Editar", edit_establishment_path(@establishment) %><br>
           Descrição: <%= @establishment.description %><br>
@@ -33,6 +33,15 @@
           Estado: <%= @establishment.state %>
         </address> <!--  end address -->
       </div> <!-- end col-md-10 -->
+      <div class="col-md-5">
+        Nota Geral: 
+        <% general_rate = 0 %>
+        <% for food in @establishment.foods %>
+          <% general_rate += food.rates.where(establishment_id: @establishment).average(:value) %>
+        <% end %>
+        <% general_rate = general_rate / @establishment.foods.count %>
+        <%= sprintf('%.1f', general_rate) %>
+      </div>
     </div> <!-- end row -->
   </div> <!-- end panel-body -->
 </div> <!-- end panel panel-default -->
@@ -63,7 +72,7 @@
 
               <span class="label label-default">
                 <% if food.rates.where(establishment_id: @establishment).count > 0 %>
-                  Nota: <%= food.rates.where(establishment_id: @establishment).average(:value) %>
+                  Nota: <%= sprintf('%.1f', food.rates.where(establishment_id: @establishment).average(:value)) %>
                 <% else %>
                   Nota: Não avaliado
                 <% end %>
