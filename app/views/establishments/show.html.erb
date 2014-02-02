@@ -80,7 +80,7 @@
 
               <span class="label label-default">
                 <% if food.prices.where(establishment_id: @establishment).count > 0 %>
-                  R$ <%= food.prices.where(establishment_id: @establishment).last.value %>
+                  R$ <%= sprintf('%.2f', food.prices.where(establishment_id: @establishment).last.value) %>
                 <% else %>
                   Sem preço definido
                 <% end %>
