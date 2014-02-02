@@ -1,7 +1,9 @@
 <div class="panel panel-default">
   <div class="panel-heading">
+    <!-- Helper "action_title" - Establishment Name -->
     <%= action_title @establishment.name %>
 
+    <!-- Ẽstablishment Categories -->
     <% @establishment.categories.each do |category| %>
       <span class="label label-default">
         <%= category.name %>
@@ -16,15 +18,17 @@
         <div class="form-group">
           <%= submit_tag "Adicionar", class: "btn btn-default" %>
         </div>
-      <% end %>
-    <% end %>
+      <% end %> <!-- end form_tag -->
+    <% end %> <!-- end if -->
   </div> <!-- end panel-heading -->
+
   <div class="panel-body">
     <div class="row">
       <div class="col-md-2">
       </div> <!-- end col-md-2 -->
       <div class="col-md-5">
         <address>
+          <!-- Establishment Informations -->
           <strong><%= @establishment.name %></strong> - <%= link_to "Editar", edit_establishment_path(@establishment) %><br>
           Descrição: <%= @establishment.description %><br>
           Endereço: <%= @establishment.address %><br>
@@ -33,7 +37,9 @@
           Estado: <%= @establishment.state %>
         </address> <!--  end address -->
       </div> <!-- end col-md-10 -->
+
       <div class="col-md-5">
+        <!-- Establishment General Rate -->
         Nota Geral: 
         <% general_rate = 0 %>
         <% general_rate_count = 0 %>
@@ -45,19 +51,19 @@
           <% if food_rate_average == nil %>
             <% food_rate_average = 0 %>
             <% food_rate_count = 0 %>
-          <% end %>
+          <% end %> <!-- end if -->
 
           <% general_rate += food_rate_average %>
           <% general_rate_count += food_rate_count %>
-        <% end %>
+        <% end %> <!-- end for -->
 
         <% if general_rate > 0 %>
           <% general_rate = general_rate / general_rate_count %>
           <%= sprintf('%.1f', general_rate) %>
         <% else %>
           Não avaliado
-        <% end %>
-      </div>
+        <% end %> <!-- end if -->
+      </div> <!-- end col-md-5 -->
     </div> <!-- end row -->
   </div> <!-- end panel-body -->
 </div> <!-- end panel panel-default -->
@@ -72,6 +78,7 @@
         <div class="list-group">
           <% @establishment.foods.each do |food| %>
             <div class="list-group-item">
+              <!-- Establishment Single Food -->
               <%= link_to([food]) do %>
                 <h4 class="list-group-item-heading">
                   <%= food.name %>
@@ -79,33 +86,38 @@
               <% end %> <!-- end link_to -->
 
               <span class="label label-default">
+                <!-- Food's Price -->
                 <% if food.prices.where(establishment_id: @establishment).count > 0 %>
                   R$ <%= sprintf('%.2f', food.prices.where(establishment_id: @establishment).last.value) %>
                 <% else %>
                   Sem preço definido
-                <% end %>
+                <% end %> <!-- end if -->
               </span>
 
               <span class="label label-default">
+                <!-- Food's Rate -->
                 <% if food.rates.where(establishment_id: @establishment).count > 0 %>
                   Nota: <%= sprintf('%.1f',   food.rates.where(establishment_id: @establishment).average(:value)) %>
                 <% else %>
                   Nota: Não avaliado
-                <% end %>
+                <% end %> <!-- end if -->
               </span>
 
+              <!-- Add New Price -->
               <button class="btn btn-default btn-price">Novo preço</button>
               <div id="popover-head-price" class="hide">Novo preço:</div>
               <div id="popover-content-price" class="hide">
                 <%= new_price(food, @establishment) %>
               </div>
 
+              <!-- New Rate -->
               <button class="btn btn-default btn-rate">Avaliar prato</button>
               <div id="popover-head-rate" class="hide">Dê uma nota:</div>
               <div id="popover-content-rate" class="hide">
                 <%= new_rate(food, @establishment) %>
               </div>
 
+              <!-- JavaScript - Popover -->
               <script type="text/javascript">
                 $('.btn-price').popover({
                   html: true,
@@ -126,15 +138,16 @@
                     return $('#popover-content-rate').html();
                   }
                 });
-              </script>
+              </script> <!-- end script -->
 
-            </div>
+            </div> <!-- end list-group-item -->
           <% end %> <!-- end each -->
         </div> <!-- end list-group -->
       </div> <!-- end col-md-12 -->
 
       <% if @establishment.unenrolled_foods.count > 0 %>
         <div class="col-md-6">
+          <!-- Enroll Food to Establishment -->
           <p>Adicione um prato aqui:</p>
           <%= form_tag(food_add_establishment_path(@establishment), class: "form-inline", role: "form") do %>
             <div class="form-group">
@@ -143,11 +156,12 @@
             <div class="form-group">
               <%= submit_tag "Adicionar", class: "btn btn-default" %>
             </div>
-          <% end %>
+          <% end %> <!-- end form_tag -->
         </div> <!-- end col-md-6 -->
-      <%end%>
+      <% end %> <!-- end if -->
 
       <div class="col-md-6">
+        <!-- Register New Food -->
         <p>Cadastre um novo prato:</p>
         <%= form_for @food, html: {class: "form-inline", role: "form"}, remote: true do |f| %>
           <div class="form-group">
