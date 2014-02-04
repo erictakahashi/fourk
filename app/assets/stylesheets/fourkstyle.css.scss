@@ -44,15 +44,18 @@ $fourkcolor: #9B1B34;
   } /* end .col-md-6.landing-call-video */
 
   .col-md-6.landing-call-text {
-    .btn.btn-call {
-      background: $fourkcolor;
-      color: white;
-    } /* end btn.btn-call */
+    .row {
+      text-align: center;
 
-    .btn.btn-call:hover {
-      background: rgb(255,251,196);
-      color: $fourkcolor;
-    } /* end btn.btn-call:hover */
+      .btn.btn-call {
+        background: #4c66a4;
+        color: white;
+      } /* end btn.btn-call */
+
+      .btn.btn-call:hover {
+        background: $fourkcolor;
+      } /* end btn.btn-call:hover */
+    } /* end row */
   } /* end col-md-6.landing-call-text */
 } /* end row.landing-call */
 

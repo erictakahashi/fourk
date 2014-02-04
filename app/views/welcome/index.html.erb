@@ -6,7 +6,11 @@
     <h2>Encontre os lugares que são realmente relevantes para você comer!</h2>
     <p>Indique e receba indicações das coisas que você mais preza em um restaurante, bar ou lanchonete</p>
 
-    <%= link_to "EXPERIMENTE JÁ!", establishments_path, class: "btn btn-default btn-lg btn-call" %>
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to "Login com Facebook", "/auth/facebook", id: "sign_in", class: "btn btn-default btn-lg btn-call" %>
+      </div>
+    </div>
   </div>
 </div>
 
