@@ -8,6 +8,7 @@ Fourk::Application.routes.draw do
   get '/uso', to: 'welcome#usage'
   get '/privacidade', to: 'welcome#privacy'
   get '/', to: 'welcome#index'
+  root :to => 'welcome#index'
 
   get '/establishments/:id/foods', to: 'establishments#foods'
 
